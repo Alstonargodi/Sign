@@ -42,15 +42,25 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/item_card_predict" />
+                tools:listitem="@layout/item_card_predict">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <ImageView
+                android:id="@+id/btn_rotate"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_baseline_autorenew_24"
+                app:layout_constraintBottom_toBottomOf="@+id/recview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/recview"
+                app:layout_constraintTop_toTopOf="@+id/recview" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
