@@ -20,7 +20,6 @@ object BisindoApiConfig {
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .build()
-
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
