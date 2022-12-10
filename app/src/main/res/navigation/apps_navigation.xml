@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/apps_navigation"
+    app:startDestination="@id/recognitionFragment">
+
+    <fragment
+        android:id="@+id/recognitionFragment"
+        android:name="com.example.bisindo_recognitions.presentasion.recognition.RecognitionFragment"
+        android:label="fragment_recognition"
+        tools:layout="@layout/fragment_recognition" >
+        <action
+            android:id="@+id/action_recognitionFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_recognitionFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.bisindo_recognitions.presentasion.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.bisindo_recognitions.presentasion.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+</navigation>
