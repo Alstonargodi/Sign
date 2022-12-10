@@ -1,0 +1,5 @@
+package com.example.bisindo_recognitions.model.remote
+
+object Constant {
+    val auth = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1zeXJ0cmd4dGJld2d1ZWNzeWxkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzA2NTgxODUsImV4cCI6MTk4NjIzNDE4NX0.OQTqwcO1Ci7CT1gmdadViIK_-_aOZxbmm4eWk0t86nE"
+}

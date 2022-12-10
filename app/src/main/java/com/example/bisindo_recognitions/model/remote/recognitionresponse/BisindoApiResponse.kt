@@ -1,4 +1,4 @@
-package com.example.bisindo_recognitions.model.recognitionresponse
+package com.example.bisindo_recognitions.model.remote.recognitionresponse
 
 import com.google.gson.annotations.SerializedName
 
