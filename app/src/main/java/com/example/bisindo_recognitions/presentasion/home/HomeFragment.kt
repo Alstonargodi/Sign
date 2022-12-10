@@ -8,14 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.bisindo_recognitions.R
 import com.example.bisindo_recognitions.databinding.FragmentHomeBinding
+import com.example.bisindo_recognitions.model.remote.recognitionresponse.BisindoApiResponse
 import com.example.bisindo_recognitions.model.utils.ResultRespon
 import com.example.bisindo_recognitions.presentasion.ViewModelFactory
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var recyclerViewAdapter : HomeRecyclerViewAdapter
 
     private val viewModel : HomeFragmentViewModel by viewModels{
         ViewModelFactory.getInstance(requireContext())
@@ -39,7 +42,7 @@ class HomeFragment : Fragment() {
 
                 }
                 is ResultRespon.Sucess ->{
-                    Log.d("bisindo",respon.data.toString())
+                    showSign(respon.data)
                 }
                 is ResultRespon.Error ->{
 
@@ -48,5 +51,10 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun showSign(data : BisindoApiResponse){
+        recyclerViewAdapter = HomeRecyclerViewAdapter(data)
+        binding.recviewBisindo.layoutManager = GridLayoutManager(requireContext(),2)
+        binding.recviewBisindo.adapter = recyclerViewAdapter
+    }
 
 }
