@@ -30,6 +30,8 @@ class RecognitionFragment : Fragment(), SignLanguageClassification.ClassifierLis
     private lateinit var cameraExecutor : ExecutorService
     private lateinit var bitmapBuffer : Bitmap
 
+    private var cameraSelector : CameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
+
     private lateinit var signLanguageClassification: SignLanguageClassification
 
     private val resultAdapter by lazy {
@@ -89,6 +91,15 @@ class RecognitionFragment : Fragment(), SignLanguageClassification.ClassifierLis
         binding.recview.adapter = resultAdapter
 
         cameraExecutor = Executors.newSingleThreadExecutor()
+
+        binding.btnRotate.setOnClickListener {
+            cameraSelector = if(cameraSelector == CameraSelector.DEFAULT_FRONT_CAMERA)
+                CameraSelector.DEFAULT_BACK_CAMERA
+            else
+                CameraSelector.DEFAULT_FRONT_CAMERA
+            setUpCamera()
+        }
+
         binding.cameraView.post {
             setUpCamera()
         }
@@ -107,11 +118,6 @@ class RecognitionFragment : Fragment(), SignLanguageClassification.ClassifierLis
     private fun initCameraUseCases(){
         val cameraProvider = cameraProvider
             ?: throw IllegalStateException("Camera initialization failed.")
-
-        //camera rotation
-        val cameraSelector = CameraSelector.Builder()
-            .requireLensFacing(CameraSelector.LENS_FACING_FRONT)
-            .build()
 
         preview = Preview.Builder()
             .setTargetAspectRatio(AspectRatio.RATIO_4_3)

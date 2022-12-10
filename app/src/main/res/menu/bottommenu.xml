@@ -2,15 +2,15 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="home"
+        android:icon="@drawable/ic_baseline_list_24"
         android:id="@+id/homeFragment"
     />
     <item
-        android:title="recognition"
+        android:icon="@drawable/ic_baseline_camera_alt_24"
         android:id="@+id/recognitionFragment"
     />
     <item
-        android:title="about"
+        android:icon="@drawable/ic_baseline_person_24"
         android:id="@+id/aboutFragment"
     />
 </menu>

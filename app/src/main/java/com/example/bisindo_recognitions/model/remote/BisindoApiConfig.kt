@@ -1,4 +1,4 @@
-package com.example.bisindo_recognitions.model
+package com.example.bisindo_recognitions.model.remote
 
 import com.example.bisindo_recognitions.BuildConfig
 import okhttp3.OkHttpClient
@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object BisindoApiConfig {
     private val baseUrl = "https://msyrtrgxtbewguecsyld.supabase.co/rest/v1/"
 
-    fun setBisindoApiService(): BisindoApiService{
+    fun setBisindoApiService(): BisindoApiService {
         val loggingInterceptor =
             if(BuildConfig.DEBUG){
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
