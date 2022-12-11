@@ -14,7 +14,7 @@ import org.tensorflow.lite.task.vision.classifier.Classifications
 import java.lang.IllegalStateException
 
 class SignLanguageClassification(
-    private var threshold : Float = 0.5f,
+    private var threshold : Float = 0.1f,
     private var numThread: Int = 10,
     var maxResult : Int = 3,
     var context : Context,
@@ -37,7 +37,7 @@ class SignLanguageClassification(
         try {
             mainClassifier = ImageClassifier.createFromFileAndOptions(
                 context,
-                "bisindo-meta.tflite",
+                "bisindo-meta-tflite4.tflite",
                 optionBuilder.build()
             )
         }catch (e : IllegalStateException){
@@ -52,7 +52,7 @@ class SignLanguageClassification(
         }
         var inferenceTime = SystemClock.uptimeMillis()
         val imageProcessor = ImageProcessor.Builder()
-//            .add(Rot90Op(rotation / 90))
+            .add(Rot90Op(rotation / 180))
             .build()
         val tensorImage = imageProcessor.process(
             TensorImage.fromBitmap(image)

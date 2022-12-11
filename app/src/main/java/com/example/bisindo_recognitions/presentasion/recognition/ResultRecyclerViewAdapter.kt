@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bisindo_recognitions.databinding.ItemCardPredictBinding
 import org.tensorflow.lite.support.label.Category
 import org.tensorflow.lite.task.vision.classifier.Classifications
+import java.util.*
 import kotlin.math.min
 
 class ResultRecyclerViewAdapter: RecyclerView.Adapter<ResultRecyclerViewAdapter.ViewHolder>() {
@@ -17,12 +18,13 @@ class ResultRecyclerViewAdapter: RecyclerView.Adapter<ResultRecyclerViewAdapter.
 
         fun bind(label: String?, score: Float?) {
             with(binding) {
-                tvResult.text = label ?: "-"
-//                tvAccuracy.text = if (score != null) String.format(
-//                    Locale.US,
-//                    "%.2f",
-//                    score
-//                ) else NO_VALUE
+                var label = label ?: "-"
+                var accuracy = if (score != null) String.format(
+                    Locale.US,
+                    "%.2f",
+                    score
+                ) else "-"
+                tvResult.text = "$label - $accuracy"
             }
         }
     }
